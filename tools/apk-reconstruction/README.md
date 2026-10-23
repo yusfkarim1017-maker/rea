@@ -5,12 +5,12 @@ APKs. No Java required for the analysis half; JDK 17+ for the rebuild half.
 
 > کوردی: [README.ku.md](README.ku.md)
 
-| Tool | What it answers | Needs |
-| --- | --- | --- |
-| `apk_report.py` | What is inside this APK? | Python + androguard |
+| Tool                                 | What it answers                                        | Needs                         |
+| ------------------------------------ | ------------------------------------------------------ | ----------------------------- |
+| `apk_report.py`                      | What is inside this APK?                               | Python + androguard           |
 | `rebuild_apk.ps1` / `rebuild_apk.sh` | Rebuild the APK from its decoded resources and sign it | JDK 17+, internet (first run) |
-| `apk_verify.py` | Did the rebuild keep the same app? | Python + androguard |
-| `make_scaffold.py` | How do I build a similar app from scratch? | Python (+ JDK only to build) |
+| `apk_verify.py`                      | Did the rebuild keep the same app?                     | Python + androguard           |
+| `make_scaffold.py`                   | How do I build a similar app from scratch?             | Python (+ JDK only to build)  |
 
 ## Install (once)
 
@@ -60,7 +60,7 @@ rebuilds it, zipaligns, and signs it with v1+v2+v3.
 
 A rebuild is **functionally faithful, never byte-identical**: `classes.dex` and
 `resources.arsc` are recompiled, zip metadata changes, and the signature block
-is regenerated with your key. That also means the rebuild installs *beside* the
+is regenerated with your key. That also means the rebuild installs _beside_ the
 original app instead of updating it, and any signature/tamper check inside the
 original will fail on the rebuild.
 
