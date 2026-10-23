@@ -141,6 +141,27 @@ gradle :app:assembleDebug
 
 ---
 
+## ٥. تەنها ڕیسۆرس (بێ build، بێ Java)
+
+```bash
+python android_resources.py path/to/project -o out/      # پڕۆژەی Gradle
+python android_resources.py work/decoded -o out/         # دەرئەنجامی apktool
+python android_resources.py . -o out/ --copy-shared      # کۆپیکردنی res ی common/
+```
+
+هەموو فۆڵدەرەکانی `res/` دەگەڕێت، XML ەکانی values دەخوێنێتەوە، و دوو فایل
+دروست دەکات: `resources.json` و `resources.md`.
+
+چی تێدا دەبێت:
+
+- ژمارەی هەر جۆرێک (layout, drawable, mipmap, menu, xml, raw…)
+- هەموو `string` و `color` و `dimen` و `style` و `bool` و `array` و `plurals`
+  لەگەڵ ئەو مۆدیولەی خاوەنییەتی
+- جیاکردنەوەی vector لە bitmap لە drawable
+- ناسینەوەی مۆدیولە هاوبەشەکان (`common/`, `core/`, `ui/`)
+
+`--copy-shared` ئەو مۆدیولانە دەکۆپیێتەوە بۆ ئەوەی بە جیا بیبینیت.
+
 ## چ ڕاستییەک دەبێت بزانیت
 
 **دووبارە دروستکردن هیچ کات «سەد لە سەد بایت-بە-بایت وەک خۆی» نابێت.**

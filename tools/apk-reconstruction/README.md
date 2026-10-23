@@ -93,6 +93,25 @@ gradle wrapper --gradle-version 8.7
 gradle :app:assembleDebug
 ```
 
+## 5. Resources only (no build, no JDK)
+
+```bash
+python android_resources.py path/to/project -o out/      # Gradle project
+python android_resources.py work/decoded -o out/         # apktool output
+python android_resources.py . -o out/ --copy-shared      # copy common/ res trees
+python android_resources.py . -o out/ --module app       # one module only
+```
+
+Walks every `res/` directory, parses the values XML, and writes
+`resources.json` + `resources.md`: counts per type, every declared string,
+color, dimen, style, bool, array and plural with the module that owns it,
+layout/drawable/mipmap inventory, vector vs bitmap split, and which modules are
+shared (`common/`, `core/`, `ui/`). `--copy-shared` copies those res trees out
+so they can be reviewed on their own.
+
+Use it before `make_scaffold.py` when you only want the resource layer, and on
+apktool output when you want the resources of an APK you already own.
+
 ## Pair with REA
 
 Where [REA](https://rea.tools/) is installed, use `inspect_android_package` for
