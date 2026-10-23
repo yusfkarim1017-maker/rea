@@ -1,0 +1,10 @@
+# Local analysis inputs and outputs
+samples/
+work/
+rebuild-out/
+*.apk
+*.jar
+*.keystore
+*.jks
+.venv/
+__pycache__/
